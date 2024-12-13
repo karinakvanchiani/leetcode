@@ -5,7 +5,7 @@ class Solution:
         merged_intervals = []
 
         for interval in intervals[1:]:
-            if merged[0] <= interval[0] <= merged[1]:
+            if interval[0] <= merged[1]:
                 merged[1] = max(merged[1], interval[1])
 
             else:

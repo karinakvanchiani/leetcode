@@ -15,3 +15,16 @@ class Solution:
             return True
         
         return False
+    
+class Solution:
+    def isValid(self, s: str) -> bool:
+        open_to_close = {'(': ')', '[': ']', '{': '}'}
+        stack = []
+
+        for parenthesis in s:
+            if parenthesis in open_to_close:
+                stack.append(parenthesis)
+            elif len(stack) == 0 or parenthesis != open_to_close[stack.pop()]:
+                return False
+
+        return len(stack) == 0
