@@ -9,17 +9,11 @@ class Solution:
         while i < len(firstList) and j < len(secondList):
             int1, int2 = firstList[i], secondList[j]
 
-            if int1[0] <= int2[0] <= int1[1] and int1[0] <= int2[1] <= int1[1]:
-                ans.append(int2)
-            
-            elif int2[0] <= int1[0] <= int2[1] and int2[0] <= int1[1] <= int2[1]:
-                ans.append(int1)
+            max_start = max(int1[0], int2[0])
+            min_end = min(int1[1], int2[1])
 
-            elif int1[0] <= int2[0] <= int1[1]:
-                ans.append([int2[0], int1[1]])
-            
-            elif int2[0] <= int1[0] <= int2[1]:
-                ans.append([int1[0], int2[1]])
+            if max_start <= min_end:
+                ans.append([max_start, min_end])
 
             i = i + 1 if int1[1] <= int2[1] else i
             j = j + 1 if int1[1] >= int2[1] else j
